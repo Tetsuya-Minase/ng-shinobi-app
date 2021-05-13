@@ -15,7 +15,7 @@ export class CharacterListEffects {
       ofType(fetchCharacter),
       switchMap(() => this.characterListService.fetchCharacterList()
         .pipe(
-          map(characterList => fetchSuccess({ data: characterList })),
+          map(response => fetchSuccess({ data: response.result })),
           catchError(() => EMPTY)
         )
       )

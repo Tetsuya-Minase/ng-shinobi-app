@@ -23,10 +23,7 @@ export const initialState: CharacterDetail[] = [{
 
 const _CharacterListReducer = createReducer(
   initialState,
-  on(fetchSuccess, (state, action) => {
-    console.log('action', action);
-    return action.data;
-  })
+  on(fetchSuccess, (state, action) => action.data)
 );
 
 export function CharacterListReducer(state: CharacterDetail[], action: CharacterListActions) {

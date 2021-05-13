@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../../services/http.service';
-import { CharacterDetail } from '../../../model/CharacterListState';
+import { CharacterListResponse } from '@ng-shinobi-app/api-interfaces';
 
 @Injectable()
 export class CharacterListService {
@@ -8,6 +8,6 @@ export class CharacterListService {
   }
 
   public fetchCharacterList() {
-    return this.httpService.fetch<CharacterDetail[]>('htps://test/v1/character');
+    return this.httpService.fetch<CharacterListResponse>('http://localhost:3000/v1/character');
   }
 }

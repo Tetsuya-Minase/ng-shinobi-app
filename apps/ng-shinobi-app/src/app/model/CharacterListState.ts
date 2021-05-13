@@ -23,4 +23,3 @@ export interface CharacterDetail {
   // readonly jintugan: number;
   // readonly tonkohu: number;
 }
-
