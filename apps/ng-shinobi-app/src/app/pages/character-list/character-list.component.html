@@ -1,3 +1,7 @@
 <div>
   list page.
+  <div>
+    {{ characterDetail$ | async | json }}
+  </div>
+  <button (click)='fetch()'>fetch</button>
 </div>
