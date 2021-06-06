@@ -1,25 +1,29 @@
-export interface CharacterDetail {
-  readonly userId: string;
-  readonly playerName: string;
-  readonly name: string;
-  readonly kana: string;
-  readonly regulation: string;
-  readonly type: string;
-  readonly ryuha: string;
-  readonly kairyuha: string;
-  readonly ryugi: string;
-  readonly enemy: string;
-  readonly rank: string;
-  readonly achievement: string;
-  readonly age: string;
-  readonly gender: string;
-  readonly face: string;
-  readonly belief: string;
+import { DeepReadonly } from '../../../../../libs/api-interfaces/src/lib/extention-types';
+
+interface _CharacterDetail {
+  userId: string;
+  playerName: string;
+  name: string;
+  kana: string;
+  regulation: string;
+  type: string;
+  ryuha: string;
+  kairyuha: string;
+  ryugi: string;
+  enemy: string;
+  rank: string;
+  achievement: string;
+  age: string;
+  gender: string;
+  face: string;
+  belief: string;
   // readonly selectedSkillList: GridData[];
   // readonly displayArtsArray: ArtsData[];
   // readonly background: BackGround[];
   // readonly secrets: SecretsData[];
-  readonly hyorogan: number;
-  readonly jintugan: number;
-  readonly tonkohu: number;
+  hyorogan: number;
+  jintugan: number;
+  tonkohu: number;
 }
+
+export type CharacterDetail = DeepReadonly<_CharacterDetail>;
