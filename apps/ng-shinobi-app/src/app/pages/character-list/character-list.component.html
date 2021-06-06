@@ -1,7 +1,38 @@
-<div>
-  list page.
-  <div>
-    {{ characterDetail$ | async | json }}
-  </div>
+<article>
+  <h1>Character List Page</h1>
+  <dl class='character-list__item' *ngFor='let character of characterDetail$ | async'>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>キャラクター名</dt>
+      <dd class='character-list__value'>{{character.name}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>流派</dt>
+      <dd class='character-list__value'>{{character.ryuha}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>階級</dt>
+      <dd class='character-list__value'>{{character.rank}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>表の顔</dt>
+      <dd class='character-list__value'>{{character.face}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>信念</dt>
+      <dd class='character-list__value'>{{character.belief}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>兵糧丸</dt>
+      <dd class='character-list__value'>{{character.hyorogan}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>神通丸</dt>
+      <dd class='character-list__value'>{{character.jintugan}}</dd>
+    </div>
+    <div class='character-list__detail'>
+      <dt class='character-list__title'>遁甲符</dt>
+      <dd class='character-list__title'>{{character.tonkohu}}</dd>
+    </div>
+  </dl>
   <button (click)='fetch()'>fetch</button>
-</div>
+</article>

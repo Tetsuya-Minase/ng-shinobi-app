@@ -19,7 +19,7 @@ export interface CharacterDetail {
   // readonly displayArtsArray: ArtsData[];
   // readonly background: BackGround[];
   // readonly secrets: SecretsData[];
-  // readonly hyorogan: number;
-  // readonly jintugan: number;
-  // readonly tonkohu: number;
+  readonly hyorogan: number;
+  readonly jintugan: number;
+  readonly tonkohu: number;
 }

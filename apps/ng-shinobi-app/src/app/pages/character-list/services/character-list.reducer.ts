@@ -18,7 +18,10 @@ export const initialState: CharacterDetail[] = [{
   age: '',
   gender: '',
   face: '',
-  belief: ''
+  belief: '',
+  hyorogan: 0,
+  jintugan: 0,
+  tonkohu: 0
 }];
 
 const _CharacterListReducer = createReducer(

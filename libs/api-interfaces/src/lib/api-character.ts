@@ -18,5 +18,8 @@ export interface CharacterListResponse {
     readonly gender: string;
     readonly face: string;
     readonly belief: string;
+    readonly hyorogan: number;
+    readonly jintugan: number;
+    readonly tonkohu: number;
   }>;
 }

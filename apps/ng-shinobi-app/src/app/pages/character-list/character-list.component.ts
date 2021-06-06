@@ -6,13 +6,14 @@ import { fetchCharacter } from './services/character-list.actions';
 
 @Component({
   selector: 'ng-shinobi-app-character-list-page',
-  templateUrl: 'character-list.component.html'
+  templateUrl: 'character-list.component.html',
+  styleUrls: ['character-list.component.scss']
 })
 
 export class CharacterListComponent implements OnInit {
   public characterDetail$: Observable<CharacterDetail[]> = this.store.select(state => state.characterList);
 
-  constructor(private readonly store: Store<{characterList: CharacterDetail[]}>) {
+  constructor(private readonly store: Store<{ characterList: CharacterDetail[] }>) {
   }
 
   ngOnInit() {
