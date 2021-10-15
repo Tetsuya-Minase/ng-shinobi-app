@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { CharacterDetail } from '../../model/CharacterListState';
+import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
+import { CharacterListState } from '../../model/CharacterListState';
 import { Observable } from 'rxjs';
 import { fetchCharacter } from './services/character-list.actions';
 
@@ -11,9 +11,13 @@ import { fetchCharacter } from './services/character-list.actions';
 })
 
 export class CharacterListComponent implements OnInit {
-  public characterDetail$: Observable<CharacterDetail[]> = this.store.select(state => state.characterList);
+  public characterDetail$: Observable<CharacterListState>;
 
-  constructor(private readonly store: Store<{ characterList: CharacterDetail[] }>) {
+  constructor(private readonly store: Store<{ characterList: CharacterListState }>) {
+    this.characterDetail$ = this.store.select(createSelector(
+      createFeatureSelector('characterList'),
+      (state: CharacterListState) => state
+    ));
   }
 
   ngOnInit() {
