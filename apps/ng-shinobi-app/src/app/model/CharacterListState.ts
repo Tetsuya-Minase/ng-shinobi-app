@@ -27,3 +27,7 @@ interface _CharacterDetail {
 }
 
 export type CharacterDetail = DeepReadonly<_CharacterDetail>;
+
+export interface CharacterListState {
+  readonly list: ReadonlyArray<CharacterDetail>;
+}

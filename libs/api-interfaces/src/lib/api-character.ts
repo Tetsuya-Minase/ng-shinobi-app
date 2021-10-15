@@ -3,7 +3,7 @@ import { DeepReadonly } from './extention-types';
 interface _CharacterListResponse {
   start: number;
   total: number;
-  result: ReadonlyArray<{
+  result: ReadonlyArray<Readonly<{
     userId: string;
     playerName: string;
     name: string;
@@ -23,7 +23,7 @@ interface _CharacterListResponse {
     hyorogan: number;
     jintugan: number;
     tonkohu: number;
-  }>;
+  }>>;
 }
 
 export type CharacterListResponse = DeepReadonly<_CharacterListResponse>;
