@@ -1,0 +1,17 @@
+.character-list__item {
+  margin-top: 8px;
+}
+
+.character-list__detail {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.character-list__title {
+  width: 40%;
+}
+
+.character-list__value {
+  width: 60%;
+}
