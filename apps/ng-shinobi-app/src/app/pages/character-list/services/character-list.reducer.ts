@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { CharacterListActions, fetchSuccess } from './character-list.actions';
+import { CharacterListActions, fetchCharacterListSuccess } from './character-list.actions';
 import { CharacterListState } from '../../../model/CharacterListState';
 
 export const initialState: CharacterListState = {
@@ -8,7 +8,7 @@ export const initialState: CharacterListState = {
 
 const _CharacterListReducer = createReducer(
   initialState,
-  on(fetchSuccess, (state, action): CharacterListState => ({ ...state, list: action.data }))
+  on(fetchCharacterListSuccess, (state, action): CharacterListState => ({ ...state, list: action.data }))
 );
 
 export function CharacterListReducer(state: CharacterListState, action: CharacterListActions) {

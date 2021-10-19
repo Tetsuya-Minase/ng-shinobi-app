@@ -1,29 +1,31 @@
-import { DeepReadonly } from './extention-types';
+import { DeepReadonly } from './extension-types';
 
 interface _CharacterListResponse {
   start: number;
   total: number;
-  result: ReadonlyArray<Readonly<{
-    userId: string;
-    playerName: string;
-    name: string;
-    kana: string;
-    regulation: string;
-    type: string;
-    ryuha: string;
-    kairyuha: string;
-    ryugi: string;
-    enemy: string;
-    rank: string;
-    achievement: string;
-    age: string;
-    gender: string;
-    face: string;
-    belief: string;
-    hyorogan: number;
-    jintugan: number;
-    tonkohu: number;
-  }>>;
+  result: ReadonlyArray<
+    Readonly<{
+      userId: string;
+      playerName: string;
+      name: string;
+      kana: string;
+      regulation: string;
+      type: string;
+      ryuha: string;
+      kairyuha: string;
+      ryugi: string;
+      enemy: string;
+      rank: string;
+      achievement: string;
+      age: string;
+      gender: string;
+      face: string;
+      belief: string;
+      hyorogan: number;
+      jintugan: number;
+      tonkohu: number;
+    }>
+  >;
 }
 
 export type CharacterListResponse = DeepReadonly<_CharacterListResponse>;

@@ -2,29 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { CharacterListState } from '../../model/CharacterListState';
 import { Observable } from 'rxjs';
-import { fetchCharacter } from './services/character-list.actions';
+import { fetchCharacterList } from './services/character-list.actions';
 
 @Component({
   selector: 'ng-shinobi-app-character-list-page',
   templateUrl: 'character-list.component.html',
-  styleUrls: ['character-list.component.scss']
+  styleUrls: ['character-list.component.scss'],
 })
-
 export class CharacterListComponent implements OnInit {
+  private readonly fetchCharacters: (start: number) => ReturnType<typeof fetchCharacterList>;
   public characterDetail$: Observable<CharacterListState>;
 
   constructor(private readonly store: Store<{ characterList: CharacterListState }>) {
-    this.characterDetail$ = this.store.select(createSelector(
-      createFeatureSelector('characterList'),
-      (state: CharacterListState) => state
-    ));
+    this.characterDetail$ = this.store.select(
+      createSelector(createFeatureSelector('characterList'), (state: CharacterListState) => state)
+    );
+    this.fetchCharacters = (start: number) => fetchCharacterList({ start, results: 10 });
   }
 
-  ngOnInit() {
-    this.store.dispatch(fetchCharacter());
+  public ngOnInit() {
+    this.store.dispatch(this.fetchCharacters(1));
   }
 
-  public fetch() {
-    this.store.dispatch(fetchCharacter());
+  public fetchCharacterList() {
+    this.store.dispatch(this.fetchCharacters(1));
   }
 }

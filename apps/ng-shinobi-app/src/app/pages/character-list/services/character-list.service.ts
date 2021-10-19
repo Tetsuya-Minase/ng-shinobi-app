@@ -4,10 +4,15 @@ import { CharacterListResponse } from '@ng-shinobi-app/api-interfaces';
 
 @Injectable()
 export class CharacterListService {
-  constructor(private readonly httpService: HttpService) {
-  }
+  constructor(private readonly httpService: HttpService) {}
 
-  public fetchCharacterList() {
-    return this.httpService.fetch<CharacterListResponse>('http://localhost:3000/v1/character');
+  public fetchCharacterList({ start, results }: { readonly start: number; readonly results: number }) {
+    return this.httpService.fetch<CharacterListResponse>(
+      'http://localhost:3000/v1/character',
+      new Map([
+        ['start', start.toString()],
+        ['results', results.toString()],
+      ])
+    );
   }
 }

@@ -1,4 +1,4 @@
-import { DeepReadonly } from '../../../../../libs/api-interfaces/src/lib/extention-types';
+import { DeepReadonly } from '../../../../../libs/api-interfaces/src/lib/extension-types';
 
 interface _CharacterDetail {
   userId: string;

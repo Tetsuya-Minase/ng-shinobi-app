@@ -1,6 +1,13 @@
 import { createAction, props } from '@ngrx/store';
 import { CharacterDetail } from '../../../model/CharacterListState';
+import { DeepReadonly } from '@ng-shinobi-app/extension';
 
-export const fetchCharacter = createAction('CHARACTER_LIST_FETCH_CHARACTER');
-export const fetchSuccess = createAction('CHARACTER_LIST_FETCH_SUCCESS', props<{ data: ReadonlyArray<CharacterDetail> }>());
-export type CharacterListActions = typeof fetchCharacter;
+export const fetchCharacterList = createAction(
+  'CHARACTER_LIST/FETCH_CHARACTER_LIST',
+  props<DeepReadonly<{ start: number; results: number }>>()
+);
+export const fetchCharacterListSuccess = createAction(
+  'CHARACTER_LIST/FETCH_CHARACTER_LIST_SUCCESS',
+  props<{ data: ReadonlyArray<CharacterDetail> }>()
+);
+export type CharacterListActions = ReturnType<typeof fetchCharacterList | typeof fetchCharacterListSuccess>;
