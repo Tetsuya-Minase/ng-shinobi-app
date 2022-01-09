@@ -7,8 +7,6 @@ import { CharacterListService } from './services/character-list.service';
 @NgModule({
   imports: [CommonModule, CharacterListRouteModule],
   declarations: [CharacterListComponent],
-  providers: [CharacterListService]
+  providers: [CharacterListService],
 })
-export class CharacterListModule {
-}
-
+export class CharacterListModule {}

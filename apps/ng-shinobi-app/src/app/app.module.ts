@@ -21,10 +21,9 @@ import { HttpService } from './services/http.service';
     TopModule,
     CharacterListModule,
     StoreModule.forRoot({ characterList: CharacterListReducer }),
-    EffectsModule.forRoot([CharacterListEffects])
+    EffectsModule.forRoot([CharacterListEffects]),
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
