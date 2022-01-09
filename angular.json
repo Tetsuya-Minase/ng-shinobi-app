@@ -1,6 +1,7 @@
 {
   "version": 1,
   "cli": {
+    "analytics": "a471b8b2-98dd-4020-9f58-9c884f8d6be3",
     "defaultCollection": "@nrwl/angular"
   },
   "defaultProject": "ng-shinobi-app",
