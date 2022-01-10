@@ -1,0 +1,13 @@
+.character-list-item__detail {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.character-list-item__title {
+  width: 40%;
+}
+
+.character-list-item__value {
+  width: 60%;
+}

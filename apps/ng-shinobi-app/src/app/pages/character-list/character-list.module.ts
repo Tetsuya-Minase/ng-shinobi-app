@@ -3,9 +3,10 @@ import { CharacterListComponent } from './character-list.component';
 import { CommonModule } from '@angular/common';
 import { CharacterListRouteModule } from './character-list-route.module';
 import { CharacterListService } from './services/character-list.service';
+import {CharacterListItemModule} from "./components/character-list-item/character-list-item.module";
 
 @NgModule({
-  imports: [CommonModule, CharacterListRouteModule],
+  imports: [CommonModule, CharacterListRouteModule, CharacterListItemModule],
   declarations: [CharacterListComponent],
   providers: [CharacterListService],
 })
