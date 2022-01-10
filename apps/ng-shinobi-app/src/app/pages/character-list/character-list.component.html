@@ -1,7 +1,9 @@
-<article>
+<article class="character-list">
   <h1>Character List Page</h1>
-  <dl class="character-list__item" *ngFor="let character of (characterDetail$ | async).list">
-    <ng-shinobi-app-character-list-item [character]="character"></ng-shinobi-app-character-list-item>
-  </dl>
+  <ul class="character-list__contents">
+    <ng-container *ngFor="let character of (characterDetail$ | async).list">
+      <ng-shinobi-app-character-list-item [character]="character"></ng-shinobi-app-character-list-item>
+    </ng-container>
+  </ul>
   <button (click)="fetchCharacterList()">fetch</button>
 </article>
