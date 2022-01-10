@@ -9,7 +9,7 @@ export class CharacterListService {
 
   public fetchCharacterList({ start, results }: FetchCharacterListParams) {
     return this.httpService.fetch<CharacterListResponse>(
-      '/v1/character',
+      'http://localhost:3333/api/v1/character',
       new Map([
         ['start', start.toString()],
         ['results', results.toString()],
