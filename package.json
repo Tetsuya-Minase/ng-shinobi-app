@@ -44,6 +44,7 @@
     "@ngrx/effects": "13.0.2",
     "@ngrx/store": "13.0.2",
     "@nrwl/angular": "13.4.3",
+    "modern-normalize": "^1.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
