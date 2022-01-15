@@ -4,6 +4,7 @@
 .button--default {
   width: 200px;
   height: 50px;
+  border-radius: 4px;
   color: $text-black;
   background-color: $bg-white;
   @include fontSize(20);

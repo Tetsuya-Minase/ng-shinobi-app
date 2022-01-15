@@ -1,15 +1,26 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Required} from "../../services/validation";
 
 @Component({
   selector: 'ng-shinobi-app-button',
-  templateUrl: 'button.component.html'
+  templateUrl: 'button.component.html',
+  styleUrls: ['button.component.scss']
 })
 
 export class ButtonComponent implements OnInit {
-  @Input() public text: string;
-  @Input() public type: 'default' | 'primary' | 'warning' | 'alert';
-  @Input() public size: 'default' | 'large' | 'small';
-  @Input() public hasBorder: boolean;
+  @Input()
+  @Required
+  public text: string;
+  @Input()
+  @Required
+  public type: 'default' | 'primary' | 'warning' | 'alert';
+  @Input()
+  @Required
+  public size: 'default' | 'large' | 'small';
+  @Input()
+  @Required
+  public hasBorder: boolean;
+
   @Output() public clicked = new EventEmitter<void>();
   public readonly classList: string[] = ['button--default'];
 
