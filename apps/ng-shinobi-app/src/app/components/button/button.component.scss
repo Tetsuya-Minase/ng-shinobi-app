@@ -1,0 +1,33 @@
+@import "apps/ng-shinobi-app/src/app/styles/font-size";
+@import "apps/ng-shinobi-app/src/app/styles/color";
+
+.button--default {
+  width: 200px;
+  height: 50px;
+  color: $text-black;
+  background-color: $bg-white;
+  @include fontSize(20);
+}
+.button--large {
+  width: 400px;
+  height: 75px;
+}
+.button--small {
+  width: 100px;
+  height: 50px;
+}
+.button--primary {
+  color: $text-white;
+  background-color: $bg-blue;
+}
+.button--warning {
+  color: $text-white;
+  background-color: $bg-yellow;
+}
+.button--alert {
+  color: $text-white;
+  background-color: $bg-red;
+}
+.button--border {
+  border: 1px solid $border-black;
+}
