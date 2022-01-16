@@ -4,7 +4,7 @@ import { TopComponent } from './pages/top/top.component';
 
 const Routes: Routes = [
   {
-    path: 'character-list',
+    path: 'characters',
     loadChildren: () => import('./pages/character-list/character-list.module').then((m) => m.CharacterListModule),
   },
   { path: '', component: TopComponent },
