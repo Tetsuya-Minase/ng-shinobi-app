@@ -3,7 +3,7 @@ import { CharacterListActions, fetchCharacterListSuccess } from './character-lis
 import { CharacterListState } from '../../../model/CharacterListState';
 
 export const initialState: CharacterListState = {
-  list: []
+  list: [],
 };
 
 const _CharacterListReducer = createReducer(

@@ -5,9 +5,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   exports: [TopComponent],
   declarations: [TopComponent],
 })
-export class TopModule {
-}
+export class TopModule {}

@@ -1,38 +1,11 @@
-<article>
-  <h1>Character List Page</h1>
-  <dl class='character-list__item' *ngFor='let character of (characterDetail$ | async).list'>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>キャラクター名</dt>
-      <dd class='character-list__value'>{{character.name}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>流派</dt>
-      <dd class='character-list__value'>{{character.ryuha}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>階級</dt>
-      <dd class='character-list__value'>{{character.rank}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>表の顔</dt>
-      <dd class='character-list__value'>{{character.face}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>信念</dt>
-      <dd class='character-list__value'>{{character.belief}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>兵糧丸</dt>
-      <dd class='character-list__value'>{{character.hyorogan}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>神通丸</dt>
-      <dd class='character-list__value'>{{character.jintugan}}</dd>
-    </div>
-    <div class='character-list__detail'>
-      <dt class='character-list__title'>遁甲符</dt>
-      <dd class='character-list__title'>{{character.tonkohu}}</dd>
-    </div>
-  </dl>
-  <button (click)='fetchCharacterList()'>fetch</button>
+<article class="character-list">
+  <h1 class="character-list__title">キャラクター一覧</h1>
+  <ul class="character-list__contents">
+    <ng-container *ngFor="let character of (characterDetailList$ | async)">
+      <ng-shinobi-app-character-list-item class="character-list__wrapper"  [character]="character"></ng-shinobi-app-character-list-item>
+    </ng-container>
+  </ul>
+  <div class="character-list__load-button">
+    <ng-shinobi-app-button size="large" type="default" text="もっと見る" [hasBorder]="true" (clicked)="fetchCharacterList()"></ng-shinobi-app-button>
+  </div>
 </article>

@@ -1,10 +1,5 @@
 {
   "version": 1,
-  "cli": {
-    "analytics": "a471b8b2-98dd-4020-9f58-9c884f8d6be3",
-    "defaultCollection": "@nrwl/angular"
-  },
-  "defaultProject": "ng-shinobi-app",
   "schematics": {
     "@nrwl/angular": {
       "application": {
@@ -33,6 +28,71 @@
     }
   },
   "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+          }
+        }
+      },
+      "tags": []
+    },
     "ng-shinobi-app": {
       "projectType": "application",
       "root": "apps/ng-shinobi-app",
@@ -48,10 +108,7 @@
             "polyfills": "apps/ng-shinobi-app/src/polyfills.ts",
             "tsConfig": "apps/ng-shinobi-app/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/ng-shinobi-app/src/favicon.ico",
-              "apps/ng-shinobi-app/src/assets"
-            ],
+            "assets": ["apps/ng-shinobi-app/src/favicon.ico", "apps/ng-shinobi-app/src/assets"],
             "styles": ["apps/ng-shinobi-app/src/styles.scss"],
             "scripts": []
           },
@@ -106,10 +163,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ng-shinobi-app/src/**/*.ts",
-              "apps/ng-shinobi-app/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/ng-shinobi-app/src/**/*.ts", "apps/ng-shinobi-app/src/**/*.html"]
           }
         },
         "test": {
@@ -120,7 +174,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ng-shinobi-app-e2e": {
       "root": "apps/ng-shinobi-app-e2e",
@@ -146,70 +201,9 @@
             "lintFilePatterns": ["apps/ng-shinobi-app-e2e/**/*.{js,ts}"]
           }
         }
-      }
-    },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
-          }
-        }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["ng-shinobi-app"]
     }
   }
 }

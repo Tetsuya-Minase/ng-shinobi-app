@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
-import { CharacterListState } from '../../model/CharacterListState';
+import {CharacterDetail, CharacterListState} from '../../model/CharacterListState';
 import { Observable } from 'rxjs';
 import { fetchCharacterList } from './services/character-list.actions';
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'ng-shinobi-app-character-list-page',
@@ -11,12 +12,12 @@ import { fetchCharacterList } from './services/character-list.actions';
 })
 export class CharacterListComponent implements OnInit {
   private readonly fetchCharacters: (start: number) => ReturnType<typeof fetchCharacterList>;
-  public characterDetail$: Observable<CharacterListState>;
+  public characterDetailList$: Observable<ReadonlyArray<CharacterDetail>>;
 
   constructor(private readonly store: Store<{ characterList: CharacterListState }>) {
-    this.characterDetail$ = this.store.select(
+    this.characterDetailList$ = this.store.select(
       createSelector(createFeatureSelector('characterList'), (state: CharacterListState) => state)
-    );
+    ).pipe(map(state => state.list));
     this.fetchCharacters = (start: number) => fetchCharacterList({ start, results: 10 });
   }
 

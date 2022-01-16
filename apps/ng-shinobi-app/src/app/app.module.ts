@@ -11,6 +11,7 @@ import { CharacterListReducer } from './pages/character-list/services/character-
 import { EffectsModule } from '@ngrx/effects';
 import { CharacterListEffects } from './pages/character-list/services/character-list.effects';
 import { HttpService } from './services/http.service';
+import {HeaderModule} from "./components/header/header.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,11 +21,11 @@ import { HttpService } from './services/http.service';
     AppRoutingModule,
     TopModule,
     CharacterListModule,
+    HeaderModule,
     StoreModule.forRoot({ characterList: CharacterListReducer }),
-    EffectsModule.forRoot([CharacterListEffects])
+    EffectsModule.forRoot([CharacterListEffects]),
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

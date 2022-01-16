@@ -1,0 +1,12 @@
+@import "apps/ng-shinobi-app/src/app/styles/font-size";
+@import "apps/ng-shinobi-app/src/app/styles/color";
+
+.header {
+  text-align: center;
+  border-bottom: 1px solid $border-black;
+}
+
+.header__title {
+  @include fontSize(36);
+  line-height: 1.5;
+}
