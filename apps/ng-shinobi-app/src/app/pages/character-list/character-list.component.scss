@@ -1,17 +1,26 @@
-.character-list__item {
-  margin-top: 8px;
-}
-
-.character-list__detail {
-  display: flex;
-  flex-wrap: wrap;
-  width: 500px;
-}
+@import "apps/ng-shinobi-app/src/app/styles/font-size";
+@import "apps/ng-shinobi-app/src/app/styles/color";
 
 .character-list__title {
-  width: 40%;
+  @include fontSize(28);
+  line-height: 1.5;
+  color: $text-black;
 }
 
-.character-list__value {
-  width: 60%;
+.character-list__contents {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.character-list__wrapper {
+  &:nth-child(n + 3) {
+    margin-top: 20px;
+  }
+}
+
+.character-list__load-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }

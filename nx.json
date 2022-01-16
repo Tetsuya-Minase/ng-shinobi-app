@@ -18,19 +18,36 @@
       }
     }
   },
-  "projects": {
-    "ng-shinobi-app": {
-      "tags": []
+  "cli": {
+    "analytics": "a471b8b2-98dd-4020-9f58-9c884f8d6be3",
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "ng-shinobi-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ng-shinobi-app"]
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "api": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "api-interfaces": {
-      "tags": []
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
-  }
+  },
+  "defaultProject": "ng-shinobi-app"
 }
