@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ng-shinobi-app-top-page',
   templateUrl: 'top.component.html',
 })
-export class TopComponent implements OnInit {
-  readonly links: Array<Record<string, string>> = [
+export class TopComponent {
+  readonly links: ReadonlyArray<Record<string, string>> = [
     { url: '/', text: 'トップページ' },
-    { url: '/character-list', text: 'キャラクターリスト' },
+    { url: '/characters', text: 'キャラクターリスト' },
   ];
-
-  constructor() {}
-
-  ngOnInit() {}
 }
