@@ -1,21 +1,25 @@
 @import "apps/ng-shinobi-app/src/app/styles/font-size";
 @import "apps/ng-shinobi-app/src/app/styles/color";
 
-.character-list-item__section {
+.character-list-item__link {
+  text-decoration: none;
+}
+
+.character-list-item__link__section {
   display: flex;
   width: 500px;
   padding: 8px 16px;
   border: 1px solid $border-black;
 }
 
-.character-list-item__section__detail {
+.character-list-item__link__section__detail {
   display: flex;
   flex-direction: column;
   order: 2;
   margin-left: 28px;
   color: $text-black;
 }
-.character-list-item__section__icon {
+.character-list-item__link__section__icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,12 +29,12 @@
   border-radius: 50%;
   background-color: $bg-gray;
 }
-.character-list-item__section__icon__image {
+.character-list-item__link__section__icon__image {
   max-width: 100%;
   max-height: 100%;
 }
 
-.character-list-item__section__detail__name {
+.character-list-item__link__section__detail__name {
   @include fontSize(20);
   font-weight: bold;
 }
